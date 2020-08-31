@@ -6,7 +6,7 @@ import {
   NewsCard,
   RelatedNews,
   SkeletonCard,
-  SkeletonList
+  SkeletonList,
 } from "../components";
 import axios from "axios";
 import Snackbar from "react-native-snackbar";
@@ -19,20 +19,19 @@ class LatestScreen extends Component {
     isLoadingNews: true,
     isLoadingRelated: true,
     error: null,
-    refresh: false
+    refresh: false,
   };
   _fetchLatest = () => {
     axios({
       method: "get",
       url: `https://newsapi.org/v2/top-headlines?country=ng&apiKey=aa584c99aaa247f6a19a428f75a4e9bf&pageSize=10&category=general`,
-      timeout: 10000
+      timeout: 10000,
     })
-      .then(res => {
+      .then((res) => {
         const news = res.data.articles;
         this.setState({ news: news, isLoadingNews: false });
       })
-      .catch(e => {
-        
+      .catch((e) => {
         this.setState({ error: e.message });
         Snackbar.show({
           title: this.state.error,
@@ -43,8 +42,8 @@ class LatestScreen extends Component {
             color: Colors.blue700,
             onPress: () => {
               false;
-            }
-          }
+            },
+          },
         });
       });
   };
@@ -53,20 +52,19 @@ class LatestScreen extends Component {
     axios({
       method: "get",
       url: `https://newsapi.org/v2/top-headlines?apiKey=aa584c99aaa247f6a19a428f75a4e9bf&page=${page}&country=ng&category=general`,
-      timeout: 10000
+      timeout: 10000,
     })
-      .then(res => {
+      .then((res) => {
         this.setState((prevState, nextProps) => ({
           related:
             page === 1
               ? Array.from(res.data.articles)
               : [...related, ...res.data.articles],
           isLoadingRelated: false,
-          totalResults: res.data.totalResults
+          totalResults: res.data.totalResults,
         }));
       })
-      .catch(e => {
-        
+      .catch((e) => {
         this.setState({ error: e.message });
         Snackbar.show({
           title: this.state.error,
@@ -77,8 +75,8 @@ class LatestScreen extends Component {
             color: Colors.blue700,
             onPress: () => {
               false;
-            }
-          }
+            },
+          },
         });
       });
   };
@@ -86,7 +84,7 @@ class LatestScreen extends Component {
     this.setState(
       (prevState, nextProps) => ({
         page: prevState.page + 1,
-        loadingMore: true
+        loadingMore: true,
       }),
       () => {
         this._fetchRelated();
@@ -110,7 +108,7 @@ class LatestScreen extends Component {
       isLoadingNews,
       isLoadingRelated,
       loadingMore,
-      refresh
+      refresh,
     } = this.state;
     return (
       <ScrollView
@@ -123,9 +121,7 @@ class LatestScreen extends Component {
         }
       >
         {isLoadingNews ? <SkeletonCard /> : <NewsCard data={news} />}
-
-        <Headline style={styles.title}>More News</Headline>
-
+        <Headline style={styles.title}> More News </Headline>
         <View style={styles.container}>
           {isLoadingRelated ? (
             <SkeletonList />
@@ -145,12 +141,12 @@ export default withTheme(LatestScreen);
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    padding: 10
+    padding: 10,
   },
   title: {
     fontFamily: "JosefinSans",
     fontSize: 20,
     left: 30,
-    paddingTop: 30
-  }
+    paddingTop: 30,
+  },
 });

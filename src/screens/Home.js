@@ -4,7 +4,7 @@ import { withTheme, Colors } from "react-native-paper";
 import { AppBar } from "../components";
 import {
   ScrollableTabView,
-  ScrollableTabBar
+  ScrollableTabBar,
 } from "@valdio/react-native-scrollable-tabview";
 import {
   FashionScreen,
@@ -14,7 +14,7 @@ import {
   TechnologyScreen,
   EntertainmentScreen,
   SportScreen,
-  ScienceScreen
+  ScienceScreen,
 } from ".";
 
 class Home extends Component {
@@ -38,7 +38,7 @@ class Home extends Component {
           locked={true}
         >
           <LatestScreen tabLabel="Latest" />
-          <FashionScreen tabLabel="Fashion" />
+          {/*  <FashionScreen tabLabel="Fashion" /> */}
           <BusinessScreen tabLabel="Business" />
           <EntertainmentScreen tabLabel="Entertainment" />
           <SportScreen tabLabel="Sport" />
@@ -54,17 +54,17 @@ export default withTheme(Home);
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    padding: 10
+    padding: 10,
   },
   title: {
     fontFamily: "JosefinSans",
     fontSize: 40,
     left: 30,
-    paddingTop: 30
+    paddingTop: 30,
   },
   tab: {
     paddingTop: 20,
-    backgroundColor: "white"
+    backgroundColor: "white",
   },
   tabUnderline: {
     backgroundColor: Colors.blue700,
@@ -72,11 +72,11 @@ const styles = StyleSheet.create({
     height: 5,
     borderRadius: 2.5,
     marginLeft: 50,
-    marginBottom: 5
+    marginBottom: 5,
   },
   tabText: {
     fontFamily: "Poppins-Regular",
     fontSize: 20,
-    fontWeight: "300"
-  }
+    fontWeight: "300",
+  },
 });

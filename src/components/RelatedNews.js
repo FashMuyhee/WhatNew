@@ -45,7 +45,7 @@ class RelatedNews extends Component {
     );
   };
   render() {
-    return !this.props.data ? (
+    return this.props.data ? (
       <FlatList
         contentContainerStyle={{
           flex: 1,
