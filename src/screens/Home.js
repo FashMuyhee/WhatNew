@@ -23,7 +23,7 @@ class Home extends Component {
 
     return (
       <View style={{ backgroundColor: background, flex: 1 }}>
-        <AppBar />
+        <AppBar title="Home"/>
         <ScrollableTabView
           style={styles.tab}
           initialPage={0}
