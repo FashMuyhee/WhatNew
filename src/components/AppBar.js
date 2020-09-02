@@ -8,7 +8,7 @@ const AppBar = (props) => {
     return (
         <View>
             <Appbar.Header>
-                <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} />
+                {/* <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} /> */}
                 <Appbar.Content title={props.title} />
                 <Appbar.Action icon="search" onPress={() => navigation.navigate('search')} />
             </Appbar.Header>
