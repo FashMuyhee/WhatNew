@@ -33,11 +33,11 @@ class SearchScreen extends Component {
     axios({
       method: "get",
       url: `https://newsapi.org/v2/everything?apiKey=aa584c99aaa247f6a19a428f75a4e9bf`,
-      timeout: 7000,
+      timeout: 10000,
       params: {
         q: query,
         qInTitle: query,
-        sortBy: "relevancy",
+        // sortBy: "relevancy",
         pageSize: page
       }
     })
