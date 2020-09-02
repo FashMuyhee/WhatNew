@@ -15,6 +15,8 @@ const RouteConfigs = {
         screen: Stack,
         navigationOptions: {
             drawerLabel: "Home",
+    drawerLockMode: "locked-closed",
+
             drawerIcon: ({ tintColor }) => (
                 <Icon name="home" size={24} color={tintColor} />
             )
@@ -24,6 +26,8 @@ const RouteConfigs = {
         screen: SettingsScreen,
         navigationOptions: {
             drawerLabel: "Settings",
+    drawerLockMode: "locked-closed",
+
             drawerIcon: ({ tintColor }) => (
                 <Icon name="settings" size={24} color={tintColor} />
             )
@@ -37,6 +41,7 @@ const DrawerNavigatorConfig = {
     contentComponent: CustomDrawerComponent,
     drawerBackgroundColor: "white",
     backBehavior: "initialRoute",
+
     contentOptions: {
         activeBackgroundColor: "white",
         itemsContainerStyle: {
@@ -54,4 +59,4 @@ const DrawerNavigatorConfig = {
         }
     }
 };
-export default Drawer = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig)
+export default Drawerh = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig)
